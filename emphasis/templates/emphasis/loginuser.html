@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+{% extends "emphasis/base.html" %}
+{% load static %}
+<head>
+
+</head>
+<body>
+{% block content %}
+<div class="content">
+    <div class="form">
+    <h1>Увійти</h1>
+    <form method="post" class="login-form">
+        {% csrf_token %}
+    {% for p in form %}
+    <p><label for="{{p.id_for_label}}"></label>{{p}}</p>
+    <p>{{p.errors}}</p>
+    {% endfor %}
+        <button type="submit" id ="form_button">Увійти</button>
+         </form>
+    <br>
+    <p><a href="{%url 'emphasis:register'%}">Немає акунта? Зареєструйтесь!</a></p>
+</div>
+    </div>
+{% endblock %}
+</body>
+</html>

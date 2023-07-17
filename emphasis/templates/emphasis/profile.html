@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+{% extends "emphasis/base.html" %}
+{% load static %}
+  <head>
+
+  </head>
+
+  <body>
+  {% block content %}
+  <div class="content">
+  <h1>Статистика користувача {{username}}</h1>
+    <p>Кількість правильних відповідей: {{all_right}}</p>
+    <p>Кількість неправильних відповідей: {{all_mistakes}}</p><p></p>
+  </div>
+  {% endblock %}
+  </body>
+</html>

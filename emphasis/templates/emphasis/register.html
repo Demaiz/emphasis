@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% extends "emphasis/base.html" %}
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Реєстрація</title>
+</head>
+<body>
+
+
+{% block content %}
+  <div class="content">
+      <div class="form">
+    <h1>Реєстрація</h1>
+
+<form method="post" class="login-form">
+{% csrf_token %}
+    {% for p in form %}
+    <p><label for="{{p.id_for_label}}"></label>{{p}}</p>
+    <p>{{p.errors}}</p>
+    {% endfor %}
+    <button type="submit" id ="form_button">Реєстрація</button>
+
+</form>
+      </div>
+  </div>
+ {% endblock %}
+
+
+
+</body>
+</html>

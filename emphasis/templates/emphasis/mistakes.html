@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+{% extends "emphasis/base.html" %}
+{% load static %}
+  <head>
+  </head>
+
+  <body>
+  {% block content %}
+  <div class="content" id = "mistakes">
+  {%if user.is_authenticated%}
+  <h2>Слова, у яких ви зробили помилки. Поставте наголос правильно 3 рази, щоб слово зникло зі списку.</h2>
+  {%if m%}
+    {%for i in m%}
+      <p>{{i.word_mistakes_counter}}/3  {{i.word_mistakes}}</p>
+    {%endfor%}
+    {%else%}
+      <h2>Наразі ваш список помилок порожній, якщо ви зробите помилку, вона з'явиться тут.</h2>
+    {%endif%}
+  {%else%}
+    <h2><a href="{% url 'emphasis:register'%}">Зареєструйтесь</a>, щоб бачити інформацію про ваші помилки.</h2>
+  {%endif%}
+  </div>
+  {% endblock %}
+  </body>
+</html>

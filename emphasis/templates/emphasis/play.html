@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+{% extends "emphasis/base.html" %}
+{% load static %}
+  <head>
+
+  </head>
+
+  <body>
+  {% block content %}
+  <div class="content" id="play">
+  <h1 id = "header">Обери букву на яку падає наголос</h1>
+  <h2 id = "counter"></h2>
+  <h1 id = "word"></h1>
+  <h1 id = "answer"></h1>
+  <div class="play_button">
+    <button id = "continue_button" style="display:none;">Продовжити</button>
+  </div>
+  </div>
+  {% endblock %}
+  {% block js%}
+  {% csrf_token %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script>
+    let all_data = "{% url 'emphasis:play' %}";
+    get_all_data(all_data);
+  </script>
+  {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+{% extends "emphasis/base.html" %}
+{% load static %}
+  <head>
+
+  </head>
+
+  <body>
+  {% block content %}
+  <div class="content" id = "words">
+  {%for word in w%}
+  <p>{{word.words_emphasis}}</p>
+  {%endfor%}
+
+  </div>
+  {% endblock %}
+  </body>
+</html>

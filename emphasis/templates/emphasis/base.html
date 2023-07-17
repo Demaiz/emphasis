@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  {% block title %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" href="{% static 'emphasis/images/favicon.png' %}">
+  <title>Наголос</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'emphasis/main.css' %}">
+  {% endblock %}
+</head>
+<body>
+  {% block nav %}
+  <div class="nav">
+    <ul>
+      <a href = "{% url 'emphasis:index' %}"><img class ="logo" src="{% static 'emphasis/images/logo.png' %}"></a>
+      <li><a href="{% url 'emphasis:words' %}">Слова</a></li>
+      <li><a href="{% url 'emphasis:play' %}">Грати</a></li>
+      <li><a href="{% url 'emphasis:mistakes' %}">Помилки</a></li>
+      <span class="login">
+        {%if user.is_authenticated%}
+        <a href="{% url 'emphasis:profile' user.get_username %}">Профіль /</a>
+        <a href="{% url 'emphasis:logout_user' %}">Вихід</a>
+        {%else%}
+              <a href="{% url 'emphasis:login' %}">Вхід / </a>
+              <a href="{% url 'emphasis:register' %}">Реєстрація</a>
+        {%endif%}
+      </span>
+    </ul>
+  </div>
+
+  {% endblock %}
+  {% block content %}{% endblock %}
+
+<script src="{% static 'emphasis/main.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+{% block js %}{% endblock %}
+</body>
+</html>

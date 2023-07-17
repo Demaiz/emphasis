@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+{% extends "emphasis/base.html" %}
+{% load static %}
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{% static 'emphasis/main.css' %}">
+
+</head>
+<body>
+{% block content %}
+<div class ="content">
+<h2>Вітаю! Цей сайт присвячений вивченню наголосів з програми ЗНО!
+    Тут ви зможете поліпшити свої мовні навички та отримати додаткові бали на ЗНО. Приєднуйтесь до нашої спільноти вивчення української мови!</h2>
+<img class ="home_img" src="{% static 'emphasis/images/0_letters, emphasis, ukrainian national ornament_esrgan-v1-x2plus.png' %}">
+</div>
+{% endblock %}
+</body>
+</html>
